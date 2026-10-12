@@ -1,0 +1,313 @@
+/* ==========================================================================
+   Mi Portafolio - Hoja de estilos principal
+
+   Índice
+   1. Reset global
+   2. Paleta de colores
+   3. Base y disposición general
+   4. Tipografía
+   5. Encabezado y navegación
+   6. Presentación (hero)
+   7. Secciones
+   8. Componentes: tarjetas, listas, figuras, botón, contacto
+   9. Pie de página
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Reset global
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   2. Paleta de colores
+   ========================================================================== */
+
+:root {
+    --color-primario: #1f3a5f;    /* Azul marino: encabezado, pie y títulos */
+    --color-secundario: #2a6f97;  /* Azul medio: enlaces y degradado del hero */
+    --color-acento: #f2a541;      /* Ámbar: botón, bordes y estados activos */
+    --color-fondo: #f4f6f9;       /* Gris muy claro: fondo general */
+    --color-superficie: #ffffff;  /* Blanco: tarjetas y texto sobre azul */
+    --color-texto: #1e2a35;       /* Gris azulado oscuro: texto de lectura */
+}
+
+
+/* ==========================================================================
+   3. Base y disposición general
+   ========================================================================== */
+
+/* Columna header / main / footer: el pie queda abajo aunque haya poco contenido */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+main {
+    flex: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ==========================================================================
+   4. Tipografía
+   ========================================================================== */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primario);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+a {
+    color: var(--color-secundario);
+    font-weight: 600;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--color-primario);
+}
+
+
+/* ==========================================================================
+   5. Encabezado y navegación
+   ========================================================================== */
+
+/* Navbar: logo en un extremo, enlaces en el otro, centrados en vertical */
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-primario);
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-superficie);
+    text-decoration: none;
+}
+
+.logo:hover,
+.logo:focus-visible {
+    color: var(--color-acento);
+}
+
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    list-style: none;
+}
+
+.nav-link {
+    padding-bottom: 0.25rem;
+    color: var(--color-superficie);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--color-acento);
+}
+
+.nav-link-active {
+    color: var(--color-acento);
+    border-bottom-color: var(--color-acento);
+}
+
+
+/* ==========================================================================
+   6. Presentación (hero)
+   ========================================================================== */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 3rem 1.5rem;
+    background-color: var(--color-primario);
+    background-image: linear-gradient(135deg, #1f3a5f 0%, #2a6f97 100%);
+    color: var(--color-superficie);
+    text-align: center;
+}
+
+.hero-title {
+    color: var(--color-superficie);
+}
+
+.hero-text {
+    max-width: 40rem;
+    font-size: 1.125rem;
+}
+
+
+/* ==========================================================================
+   7. Secciones
+   ========================================================================== */
+
+/* Cada sección apila sus hijos en columna; gap separa título, texto y tarjetas */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 60rem;
+    margin: 0 auto 2.5rem;
+    padding: 0 1.5rem;
+}
+
+
+/* ==========================================================================
+   8. Componentes: tarjetas, listas, figuras, botón, contacto
+   ========================================================================== */
+
+/* Contenedor de tarjetas: fila que baja de línea cuando no hay lugar */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Tarjeta: item del contenedor y, a la vez, columna flex de su contenido */
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1 1 16rem;
+    padding: 1.5rem; /* 24px */
+    background-color: var(--color-superficie);
+    border-left: 4px solid var(--color-acento);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(31, 58, 95, 0.12);
+}
+
+/* Listas de contenido */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1.25rem;
+}
+
+/* Figuras */
+.figure-img {
+    display: block;
+    border-radius: 8px;
+}
+
+.figure-caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Botón */
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-acento);
+    color: var(--color-primario);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.button:hover,
+.button:focus-visible {
+    background-color: var(--color-primario);
+    color: var(--color-superficie);
+}
+
+/* Datos de contacto */
+.contact-address {
+    font-style: normal;
+}
+
+
+/* ==========================================================================
+   9. Pie de página
+   ========================================================================== */
+
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-primario);
+    color: var(--color-superficie);
+    text-align: center;
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+}
+
+.social-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.social-link {
+    color: var(--color-acento);
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+    color: var(--color-superficie);
+}
